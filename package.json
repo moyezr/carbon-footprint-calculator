@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
+    "@nextui-org/button": "^2.0.21",
+    "@nextui-org/react": "^2.1.13",
     "@nextui-org/system": "^2.0.10",
     "@nextui-org/theme": "^2.1.9",
+    "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
     "geist": "^1.0.0",
+    "lucide-react": "^0.290.0",
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.47.0",
+    "tailwind-merge": "^2.0.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
