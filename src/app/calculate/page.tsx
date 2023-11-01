@@ -1,6 +1,13 @@
 "use client";
+import NextButton from "@/components/NextButton";
+import Food from "@/components/tabs/Food";
 import Members from "@/components/tabs/Members";
+import Purchases from "@/components/tabs/Purchases";
+import Recycle from "@/components/tabs/Recycle";
 import Size from "@/components/tabs/Size";
+import Transportation from "@/components/tabs/Transportation";
+import Waste from "@/components/tabs/Waste";
+import Water from "@/components/tabs/Water";
 import {
   Progress,
   Card,
@@ -17,7 +24,7 @@ type Props = {};
 export enum Tabs {
   "MEMBERS",
   "SIZE",
-  "FOODS",
+  "FOOD",
   "WATER",
   "PURCHASES",
   "WASTE",
@@ -40,29 +47,31 @@ const CalculatorPage = (props: Props) => {
       <div className="flex flex-col gap-1 text-black w-[80%] md:w-[60%] lg:w-[40%] ">
         <Progress size="md" aria-label="Loading..." value={progress} />
         {currentTab == Tabs.MEMBERS && (
-          <Members next={next} setCurrentTab={setCurrentTab} />
+          <Members next={next} />
         )}
         {currentTab == Tabs.SIZE && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Size next={next} />
         )}
-        {currentTab == Tabs.FOODS && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+        {currentTab == Tabs.FOOD && (
+          <Food next={next} />
         )}
         {currentTab == Tabs.WATER && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Water next={next} />
         )}
         {currentTab == Tabs.PURCHASES && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Purchases next={next} />
         )}
         {currentTab == Tabs.WASTE && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Waste next={next} />
         )}
         {currentTab == Tabs.RECYCLE && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Recycle next={next} />
         )}
         {currentTab == Tabs.TRANSPORTATION && (
-          <Size next={next} setCurrentTab={setCurrentTab} />
+          <Transportation next={next} />
         )}
+
+        <NextButton onClick={next} /> 
       </div>
     </main>
   );

@@ -2,11 +2,10 @@ import { TabProps } from '@/types/tabs'
 import React from 'react'
 
 
-
-const Food = (props: TabProps) => {
+const Recycle = (props: TabProps) => {
   return (
-    <div>Food</div>
+    <div>Recycle</div>
   )
 }
 
-export default Food
+export default Recycle

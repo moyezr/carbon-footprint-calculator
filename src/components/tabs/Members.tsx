@@ -7,16 +7,14 @@ import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 import { membersData } from "@/app/data/members";
 import NextButton from "../NextButton";
 import { Tabs } from "@/app/calculate/page";
-type Props = {
-  setCurrentTab: Dispatch<SetStateAction<Tabs>>;
-  next: () => void;
-};
+import { TabProps } from "@/types/tabs";
+
 
 const MembersSchema = z.object({
   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
 });
 
-const Members = ({ setCurrentTab, next }: Props) => {
+const Members = ({ next }: TabProps) => {
   const {
     register,
     handleSubmit,
@@ -24,10 +22,6 @@ const Members = ({ setCurrentTab, next }: Props) => {
   } = useForm<z.infer<typeof MembersSchema>>({
     resolver: zodResolver(MembersSchema),
   });
-
-  const onClick = () => {
-    setCurrentTab(Tabs.SIZE)
-  }
 
   return (
     <Card className="w-full flex">
@@ -51,8 +45,6 @@ const Members = ({ setCurrentTab, next }: Props) => {
           </Select>
         </form>
       </CardBody>
-
-      <NextButton onClick={next} />
     </Card>
   );
 };
