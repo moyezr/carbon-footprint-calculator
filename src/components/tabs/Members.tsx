@@ -1,12 +1,9 @@
-import React, { Dispatch, SetStateAction } from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 import { membersData } from "@/app/data/members";
-import NextButton from "../NextButton";
-import { Tabs } from "@/app/calculate/page";
 import { TabProps } from "@/types/tabs";
 
 

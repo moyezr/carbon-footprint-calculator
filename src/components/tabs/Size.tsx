@@ -30,7 +30,7 @@ const Size = ({  }: TabProps) => {
       <CardBody>
         <form className="flex flex-col items-center ">
           <Select
-            label="Members in House"
+            label="Size of Home"
             placeholder="Select an option"
             className="max-w-xs text-black"
           >
