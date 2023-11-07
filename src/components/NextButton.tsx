@@ -8,7 +8,7 @@ type Props = {
 
 const NextButton = ({ onClick }: Props) => {
   return (
-    <Button onClick={onClick} className="flex items-center gap-2 text-white bg-green-400 text-xl font-semibold tracking-tight">
+    <Button color="primary" onClick={onClick} className="flex-1 w-full items-center gap-2 text-white text-xl font-semibold tracking-tight rounded-none rounded-full">
       Next <ArrowRight />
     </Button>
   );

@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@nextui-org/button";
 
-type Props = {}
+type Props = {
+  onClick: () => void;
+};
 
-const PreviousButton = (props: Props) => {
+const PreviousButton = ({ onClick }: Props) => {
   return (
-    <div>PreviousButton</div>
-  )
-}
+    <Button color="default" onClick={onClick} className="flex-1 w-full items-center gap-2 text-white text-xl font-semibold tracking-tight rounded-full">
+      <ArrowLeft /> Prev
+    </Button>
+  );
+};
 
-export default PreviousButton
+export default PreviousButton;

@@ -1,5 +1,6 @@
 "use client";
 import NextButton from "@/components/NextButton";
+import PreviousButton from "@/components/PreviousButton";
 import Food from "@/components/tabs/Food";
 import Members from "@/components/tabs/Members";
 import Purchases from "@/components/tabs/Purchases";
@@ -42,6 +43,12 @@ const CalculatorPage = (props: Props) => {
     setProgress((prev) =>  prev + 10)
     console.log(currentTab);
   };
+  const prev = () => {
+    // @ts-ignore
+    setCurrentTab((prev) => prev - 1);
+    // setProgress((prev) =>  prev + 10)
+    console.log(currentTab);
+  };
 
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-center">
@@ -71,8 +78,11 @@ const CalculatorPage = (props: Props) => {
         {currentTab == Tabs.TRANSPORTATION && (
           <Transportation next={next} />
         )}
-
+        
+        <div className="w-full flex flex-row gap-8 justify-between">
+        {currentTab != Tabs.MEMBERS && <PreviousButton onClick={prev} />}
         <NextButton onClick={next} /> 
+        </div>
       </div>
     </main>
   );
