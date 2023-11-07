@@ -8,6 +8,7 @@ import { sizeData } from "@/app/data/size";
 import NextButton from "../NextButton";
 import { Tabs } from "@/app/calculate/page";
 import { TabProps } from "@/types/tabs";
+import { transportationData } from "@/app/data/transportationData";
 
 const MembersSchema = z.object({
   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
@@ -26,22 +27,25 @@ const Transportation = ({}: TabProps) => {
     <Card className="w-full flex">
       <CardHeader>Tally up your annual transportation scores.</CardHeader>
       <CardBody>
-        <form className="flex flex-col items-center ">
-          <Select
-            label="Size of Home"
-            placeholder="Select an option"
-            className="max-w-xs text-black"
-          >
-            {sizeData.map((size) => (
-              <SelectItem
-                className="text-black"
-                key={size.value}
-                value={size.value}
+        <form className="flex flex-col items-center gap-6">
+          {transportationData.map((item, i) => (
+              <Select
+                label={item.label}
+                placeholder="Select an option"
+                className="max-w-xs text-black"
               >
-                {size.label}
-              </SelectItem>
-            ))}
-          </Select>
+                {item.data.map((data) => (
+                  <SelectItem
+                    className="text-black"
+                    key={data.value}
+                    value={data.value}
+                  >
+                    {data.label}
+                  </SelectItem>
+                ))}
+              </Select>
+          ))}
+
         </form>
       </CardBody>
     </Card>
