@@ -34,7 +34,7 @@ export enum Tabs {
 }
 
 const CalculatorPage = (props: Props) => {
-  const [progress, setProgress] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(12.5);
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.MEMBERS);
 
   const next = () => {
