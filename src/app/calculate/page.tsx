@@ -40,13 +40,13 @@ const CalculatorPage = (props: Props) => {
   const next = () => {
     // @ts-ignore
     setCurrentTab((prev) => prev + 1);
-    setProgress((prev) =>  prev + 10)
+    setProgress((prev) =>  prev + 12.5)
     console.log(currentTab);
   };
   const prev = () => {
     // @ts-ignore
     setCurrentTab((prev) => prev - 1);
-    setProgress((prev) =>  prev - 10)
+    setProgress((prev) =>  prev - 12.5)
     console.log(currentTab);
   };
 
