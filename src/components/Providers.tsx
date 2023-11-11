@@ -1,16 +1,19 @@
-import { NextUIProvider } from '@nextui-org/system'
-import { ReactNode } from 'react'
+"use client"
+
+import { ScoreContextProvider } from "@/context/score";
+import { NextUIProvider } from "@nextui-org/system";
+import { ReactNode } from "react";
 
 type Props = {
-    children: ReactNode
-}
+  children: ReactNode;
+};
 
 const Providers = ({ children }: Props) => {
   return (
     <NextUIProvider>
-        {children}
+      <ScoreContextProvider>{children}</ScoreContextProvider>
     </NextUIProvider>
-  )
-}
+  );
+};
 
-export default Providers
+export default Providers;

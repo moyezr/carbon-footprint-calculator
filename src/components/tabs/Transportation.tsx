@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
-import { sizeData } from "@/app/data/size";
+import { sizeData } from "@/data/size";
 import NextButton from "../NextButton";
 import { Tabs } from "@/app/calculate/page";
 import { TabProps } from "@/types/tabs";
-import { transportationData } from "@/app/data/transportationData";
+import { transportationData } from "@/data/transportationData";
 
 const MembersSchema = z.object({
   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),

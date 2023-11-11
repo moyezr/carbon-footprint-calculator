@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
-import { purchaseData } from "@/app/data/purchase";
+import { purchaseData } from "@/data/purchase";
 import { TabProps } from "@/types/tabs";
 
 const Purchases = ({ next }: TabProps) => {

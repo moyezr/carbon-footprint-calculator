@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
-import { membersData } from "@/app/data/members";
+import { membersData } from "@/data/members";
 import { TabProps } from "@/types/tabs";
-
+import { useScoreContext } from "@/context/score";
 
 const MembersSchema = z.object({
   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
@@ -19,6 +19,12 @@ const Members = ({ next }: TabProps) => {
   } = useForm<z.infer<typeof MembersSchema>>({
     resolver: zodResolver(MembersSchema),
   });
+  // @ts-ignore
+  const { dispatch } = useScoreContext();
+
+  const handleChange = (e: any) => {
+    dispatch({ type: "MEMBERS", value: e.target.value });
+  };
 
   return (
     <Card className="w-full flex">
@@ -28,6 +34,7 @@ const Members = ({ next }: TabProps) => {
           <Select
             label="Members in House"
             placeholder="Select an option"
+            onChange={handleChange}
             className="max-w-xs text-black"
           >
             {membersData.map((animal) => (

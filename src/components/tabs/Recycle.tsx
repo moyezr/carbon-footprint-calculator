@@ -1,9 +1,9 @@
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
-import { membersData } from "@/app/data/members";
+import { membersData } from "@/data/members";
 import { TabProps } from "@/types/tabs";
 import { Checkbox } from "@nextui-org/react";
-import { recycleData } from "@/app/data/recycleData";
+import { recycleData } from "@/data/recycleData";
 // const MembersSchema = z.object({
 //   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
 // });

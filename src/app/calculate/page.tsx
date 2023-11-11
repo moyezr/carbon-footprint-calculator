@@ -50,6 +50,7 @@ const CalculatorPage = (props: Props) => {
     console.log(currentTab);
   };
 
+
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="flex flex-col gap-1 text-black w-[80%] md:w-[60%] lg:w-[40%] ">
