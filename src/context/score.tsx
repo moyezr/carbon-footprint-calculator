@@ -33,7 +33,7 @@ const initialState = {
   food: 0,
   members: 0,
   purchases: 0,
-  recycle: 0,
+  recycle: 24,
   size: 0,
   transportation: 0,
   waste: 0,

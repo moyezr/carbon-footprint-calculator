@@ -8,15 +8,22 @@ import { useScoreContext } from "@/context/score";
 
 const Recycle = ({ setIsDisabled }: TabProps) => {
 
-  const { dispatch } = useScoreContext();
+
+  const { score, dispatch } = useScoreContext();
 
   useEffect(() => {
     setIsDisabled(true);
   }, []);
 
-  const handleChange = (e: any) => {
+  const handleCheck = (e: any) => {
     setIsDisabled(false);
-    dispatch({ type: "RECYCLE", value: e.target.value });
+    let value: number;
+    if(e.target.checked) {
+      value = score.recycle - 4;
+    } else {
+      value = score.recycle + 4;
+    }
+    dispatch({ type: "RECYCLE", value });
   };
 
   return (
@@ -26,7 +33,7 @@ const Recycle = ({ setIsDisabled }: TabProps) => {
         <form className="flex flex-col items-start">
      
             {recycleData.map((item, i) => (
-              <Checkbox key={i} value={item.value.toString()}>{item.label}</Checkbox>
+              <Checkbox onChange={handleCheck} key={i} value={item.value.toString()}>{item.label}</Checkbox>
             ))}
     
         </form>
