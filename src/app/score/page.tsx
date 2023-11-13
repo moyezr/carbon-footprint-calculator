@@ -13,7 +13,7 @@ type Props = {};
 
 const ScorePage = (props: Props) => {
   const { score } = useScoreContext();
-  console.log("FINAL SCORE -> ", score);
+  // console.log("FINAL SCORE -> ", score);
 
   const arr = Object.values(score);
   let totalScore: number = 0;
@@ -21,7 +21,7 @@ const ScorePage = (props: Props) => {
     totalScore += Number(arr[i]);
   }
 
-  console.log("TOTAL SCORE", totalScore);
+  // console.log("TOTAL SCORE", totalScore);
 
   let gradient = "";
 

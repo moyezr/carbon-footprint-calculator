@@ -11,7 +11,7 @@ const Purchases = ({ setIsDisabled, next }: TabProps) => {
 
   useEffect(() => {
     setIsDisabled(true);
-  }, []);
+  }, [setIsDisabled]);
 
   const handleChange = (e: any) => {
     setIsDisabled(false);

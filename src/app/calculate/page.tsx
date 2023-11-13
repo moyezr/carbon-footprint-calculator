@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 type Props = {};
 
-export enum Tabs {
+enum Tabs {
   "MEMBERS",
   "SIZE",
   "FOOD",
@@ -33,7 +33,6 @@ const CalculatorPage = (props: Props) => {
   const router = useRouter();
 
   const next = () => {
-    // @ts-ignore
     if (currentTab == 7) {
       setIsLoading(true);
       setProgress((prev) => prev + 12.5);

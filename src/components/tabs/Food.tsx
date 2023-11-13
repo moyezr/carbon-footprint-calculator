@@ -14,7 +14,7 @@ const Food = ({ setIsDisabled }: TabProps) => {
 
   useEffect(() => {
     setIsDisabled(true);
-  }, []);
+  }, [setIsDisabled]);
 
   const handleChange = (e: any) => {
     setIsDisabled(false);

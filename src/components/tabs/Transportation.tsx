@@ -16,7 +16,7 @@ const Transportation = ({ setIsDisabled }: TabProps) => {
 
   useEffect(() => {
     setIsDisabled(true);
-  }, []);
+  }, [setIsDisabled]);
 
   const handlePublicTransportChange = (e: any) => {
     setIsDisabled(false);

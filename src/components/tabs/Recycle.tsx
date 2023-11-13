@@ -13,7 +13,7 @@ const Recycle = ({ setIsDisabled }: TabProps) => {
 
   useEffect(() => {
     setIsDisabled(true);
-  }, []);
+  }, [setIsDisabled]);
 
   const handleCheck = (e: any) => {
     setIsDisabled(false);

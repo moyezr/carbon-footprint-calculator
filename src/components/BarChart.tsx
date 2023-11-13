@@ -20,7 +20,6 @@ ChartJS.register(
 );
 
 import React from "react";
-import { Card } from "@nextui-org/react";
 import { useScoreContext } from "@/context/score";
 
 const labels = [
