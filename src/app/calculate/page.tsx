@@ -10,6 +10,7 @@ import Transportation from "@/components/tabs/Transportation";
 import Waste from "@/components/tabs/Waste";
 import Water from "@/components/tabs/Water";
 import { Progress } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 type Props = {};
 
@@ -26,15 +27,18 @@ export enum Tabs {
 
 const CalculatorPage = (props: Props) => {
   const [progress, setProgress] = useState<number>(0);
-  const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.TRANSPORTATION);
+  const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.MEMBERS);
   const [isDisabled, setIsDisabled] = useState(true);
+  const router = useRouter();
 
   const next = () => {
     // @ts-ignore
     if (currentTab == 7) {
+      router.push("/score");
+      setProgress((prev) => prev + 12.5);
+      return;
     }
     setCurrentTab((prev) => prev + 1);
-    setProgress((prev) => prev + 12.5);
   };
   const prev = () => {
     // @ts-ignore
