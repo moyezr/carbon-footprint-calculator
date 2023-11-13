@@ -3,7 +3,7 @@
 import Wrapper from "@/components/Wrapper";
 import { useScoreContext } from "@/context/score";
 import { cn } from "@/lib/utils";
-import { Card } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import React, { useMemo } from "react";
 
 type Props = {};
@@ -39,7 +39,7 @@ const ScorePage = (props: Props) => {
         <div className="flex flex-[0.75] w-full flex-col gap-4">
           <Card
             className={cn(
-              "flex w-full flex-col gap-2 items-center max-h-fit py-8",
+              "flex w-full flex-col gap-2 items-center justify-center h-fit py-12",
               gradient
             )}
           >
@@ -48,8 +48,18 @@ const ScorePage = (props: Props) => {
               {totalScore}
             </p>
           </Card>
-          <Card className="h-full">
-
+          <Card className="h-full p-8">
+            <CardHeader className="text-gray-700 font-semibold text-lg">
+              Know your score
+            </CardHeader>
+            <CardBody>
+              <ul className="flex flex-col gap-4 p-0 list-disc">
+                <li className="text-gray-600">{`Greater than 0 and less than 20 -> Great`}</li>
+                <li className="text-gray-600">{`Greater than 20 and less than 30 -> Ok`}</li>
+                <li className="text-gray-600">{`Greater than 30 and less than 40 -> Average`}</li>
+                <li className="text-gray-600">{`Greater than 40 -> Bad`}</li>
+              </ul>
+            </CardBody>
           </Card>
         </div>
         <Card className="flex-1 w-full"></Card>

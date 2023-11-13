@@ -38,6 +38,7 @@ const CalculatorPage = (props: Props) => {
       setProgress((prev) => prev + 12.5);
       return;
     }
+    setProgress((prev) => prev + 12.5);
     setCurrentTab((prev) => prev + 1);
   };
   const prev = () => {
