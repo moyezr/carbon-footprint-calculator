@@ -7,7 +7,6 @@ import { TabProps } from "@/types/tabs";
 import {
   privateTransportationData,
   publicTransportationData,
-  transportationData,
 } from "@/data/transportationData";
 import { useScoreContext } from "@/context/score";
 

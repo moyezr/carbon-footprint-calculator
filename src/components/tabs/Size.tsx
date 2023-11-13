@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from "@nextui-org/react";
 
 
 import { Select, SelectItem } from "@nextui-org/react";

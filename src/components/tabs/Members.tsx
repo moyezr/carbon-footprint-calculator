@@ -1,27 +1,17 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Select, SelectSection, SelectItem } from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from "@nextui-org/react";
+
+import { Select, SelectItem } from "@nextui-org/react";
 import { membersData } from "@/data/members";
 import { TabProps } from "@/types/tabs";
 import { useScoreContext } from "@/context/score";
-import { setMaxListeners } from "events";
-import { useElementScroll } from "framer-motion";
+
 import { useEffect } from "react";
 
-const MembersSchema = z.object({
-  members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
-});
+
 
 const Members = ({ next, setIsDisabled }: TabProps) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<z.infer<typeof MembersSchema>>({
-    resolver: zodResolver(MembersSchema),
-  });
+
+
   // @ts-ignore
   const { dispatch } = useScoreContext();
 
