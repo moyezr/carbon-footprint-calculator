@@ -1,10 +1,23 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 
-import { Select, SelectSection, SelectItem } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 import { purchaseData } from "@/data/purchase";
 import { TabProps } from "@/types/tabs";
+import { useEffect } from "react";
+import { useScoreContext } from "@/context/score";
 
-const Purchases = ({ next }: TabProps) => {
+const Purchases = ({ setIsDisabled, next }: TabProps) => {
+  const { dispatch } = useScoreContext();
+
+  useEffect(() => {
+    setIsDisabled(true);
+  }, []);
+
+  const handleChange = (e: any) => {
+    setIsDisabled(false);
+    dispatch({ type: "PURCHASES", value: e.target.value });
+  };
+
   return (
     <Card className="w-full flex">
       <CardHeader>How many household purchases you make each year?</CardHeader>
@@ -14,6 +27,7 @@ const Purchases = ({ next }: TabProps) => {
             label="How rich are you"
             placeholder="Select an option"
             className="max-w-xs text-black"
+            onChange={handleChange}
           >
             {purchaseData.map((purchase) => (
               <SelectItem

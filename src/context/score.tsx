@@ -71,7 +71,7 @@ const reducerFn = (
 export const ScoreContextProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
-  console.log("SCORE -> ", state);
+  // console.log("SCORE -> ", state);
 
   return (
     <ScoreContext.Provider value={{ score: state, dispatch }}>

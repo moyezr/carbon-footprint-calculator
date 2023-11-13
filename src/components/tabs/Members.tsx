@@ -6,12 +6,15 @@ import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 import { membersData } from "@/data/members";
 import { TabProps } from "@/types/tabs";
 import { useScoreContext } from "@/context/score";
+import { setMaxListeners } from "events";
+import { useElementScroll } from "framer-motion";
+import { useEffect } from "react";
 
 const MembersSchema = z.object({
   members: z.enum(["1", "2", "3", "4", "5", "6", "6+"]),
 });
 
-const Members = ({ next }: TabProps) => {
+const Members = ({ next, setIsDisabled }: TabProps) => {
   const {
     register,
     handleSubmit,
@@ -22,7 +25,12 @@ const Members = ({ next }: TabProps) => {
   // @ts-ignore
   const { dispatch } = useScoreContext();
 
+  useEffect(() => {
+    setIsDisabled(true);
+  }, []);
+
   const handleChange = (e: any) => {
+    setIsDisabled(false);
     dispatch({ type: "MEMBERS", value: e.target.value });
   };
 

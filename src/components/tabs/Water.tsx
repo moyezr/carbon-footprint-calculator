@@ -1,10 +1,24 @@
 import { TabProps } from '@/types/tabs'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import { Select, SelectSection, SelectItem } from "@nextui-org/react";
 import { waterData } from '@/data/water';
+import { useScoreContext } from '@/context/score';
 
-const Water = (props: TabProps) => {
+const Water = ({ setIsDisabled }: TabProps) => {
+
+  const { dispatch } = useScoreContext();
+
+  useEffect(() => {
+    setIsDisabled(true);
+  }, []);
+
+  const handleChange = (e: any) => {
+    setIsDisabled(false);
+    dispatch({ type: "WATER", value: e.target.value });
+  };
+
+
   return (
     <Card className="w-full flex">
     <CardHeader>How often do you use your Washing Machine?</CardHeader>
@@ -14,6 +28,7 @@ const Water = (props: TabProps) => {
           label="Frequency of Use"
           placeholder="Select an option"
           className="max-w-xs text-black"
+          onChange={handleChange}
         >
           {waterData.map((water) => (
             <SelectItem

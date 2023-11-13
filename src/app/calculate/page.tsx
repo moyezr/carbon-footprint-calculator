@@ -34,55 +34,55 @@ export enum Tabs {
 }
 
 const CalculatorPage = (props: Props) => {
-  const [progress, setProgress] = useState<number>(12.5);
+  const [progress, setProgress] = useState<number>(0);
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.MEMBERS);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const next = () => {
     // @ts-ignore
+    if (currentTab == 7) {
+    }
     setCurrentTab((prev) => prev + 1);
-    setProgress((prev) =>  prev + 12.5)
-    console.log(currentTab);
+    setProgress((prev) => prev + 12.5);
   };
   const prev = () => {
     // @ts-ignore
     setCurrentTab((prev) => prev - 1);
-    setProgress((prev) =>  prev - 12.5)
-    console.log(currentTab);
+    setProgress((prev) => prev - 12.5);
   };
-
 
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="flex flex-col gap-1 text-black w-[80%] md:w-[60%] lg:w-[40%] ">
         <Progress size="md" aria-label="Loading..." value={progress} />
         {currentTab == Tabs.MEMBERS && (
-          <Members next={next} />
+          <Members setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.SIZE && (
-          <Size next={next} />
+          <Size setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.FOOD && (
-          <Food next={next} />
+          <Food setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.WATER && (
-          <Water next={next} />
+          <Water setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.PURCHASES && (
-          <Purchases next={next} />
+          <Purchases setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.WASTE && (
-          <Waste next={next} />
+          <Waste setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.RECYCLE && (
-          <Recycle next={next} />
+          <Recycle setIsDisabled={setIsDisabled} next={next} />
         )}
         {currentTab == Tabs.TRANSPORTATION && (
-          <Transportation next={next} />
+          <Transportation setIsDisabled={setIsDisabled} next={next} />
         )}
-        
+
         <div className="w-full flex flex-row gap-8 justify-between">
-        {currentTab != Tabs.MEMBERS && <PreviousButton onClick={prev} />}
-        <NextButton onClick={next} /> 
+          {currentTab != Tabs.MEMBERS && <PreviousButton onClick={prev} />}
+          <NextButton isDisabled={isDisabled} onClick={next} />
         </div>
       </div>
     </main>
