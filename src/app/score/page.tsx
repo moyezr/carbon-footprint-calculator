@@ -4,22 +4,23 @@ import Wrapper from "@/components/Wrapper";
 import { useScoreContext } from "@/context/score";
 import { cn } from "@/lib/utils";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import BarChart from "@/components/BarChart";
 import React, { useMemo } from "react";
 
 type Props = {};
 
 const ScorePage = (props: Props) => {
   const { score } = useScoreContext();
+  console.log("FINAL SCORE -> ", score)
 
-  const totalScore = useMemo(() => {
-    const arr = Object.values(score);
-    let sum: number = 0;
-    for (var num in arr) {
-      sum += Number(num);
-    }
+  const arr = Object.values(score);
+  let totalScore: number = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalScore += Number(arr[i]);
+  }
 
-    return sum;
-  }, [score]);
+
+  console.log("TOTAL SCORE", totalScore)
 
   let gradient = "";
 
@@ -62,7 +63,9 @@ const ScorePage = (props: Props) => {
             </CardBody>
           </Card>
         </div>
-        <Card className="flex-1 w-full"></Card>
+        <Card className="flex-1 w-full">
+          <BarChart />
+        </Card>
       </main>
     </Wrapper>
   );

@@ -26,7 +26,7 @@ const Food = ({ setIsDisabled }: TabProps) => {
       <CardBody>
         <form className="flex flex-col items-center ">
           <Select
-            label="Size of Home"
+            label="Select Frequency"
             placeholder="Select an option"
             className="max-w-xs text-black"
             onChange={handleChange}

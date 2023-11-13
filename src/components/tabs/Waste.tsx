@@ -26,7 +26,7 @@ const Waste = ({ setIsDisabled }: TabProps) => {
       <CardBody>
         <form className="flex flex-col items-center ">
           <Select
-            label="Size of Home"
+            label="Number of Trash Can you will in a week."
             placeholder="Select an option"
             className="max-w-xs text-black"
             onChange={handleChange}
