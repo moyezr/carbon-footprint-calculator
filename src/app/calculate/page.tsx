@@ -9,16 +9,7 @@ import Size from "@/components/tabs/Size";
 import Transportation from "@/components/tabs/Transportation";
 import Waste from "@/components/tabs/Waste";
 import Water from "@/components/tabs/Water";
-import {
-  Progress,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Select,
-  SelectSection,
-  SelectItem,
-} from "@nextui-org/react";
+import { Progress } from "@nextui-org/react";
 import { useState } from "react";
 type Props = {};
 
@@ -35,7 +26,7 @@ export enum Tabs {
 
 const CalculatorPage = (props: Props) => {
   const [progress, setProgress] = useState<number>(0);
-  const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.RECYCLE);
+  const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.TRANSPORTATION);
   const [isDisabled, setIsDisabled] = useState(true);
 
   const next = () => {

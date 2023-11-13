@@ -16,7 +16,8 @@ type ScoreType = {
   purchases: number;
   recycle: number;
   size: number;
-  transportation: number;
+  publicTransportation: number;
+  privateTransportation: number;
   waste: number;
   water: number;
 };
@@ -35,7 +36,8 @@ const initialState = {
   purchases: 0,
   recycle: 24,
   size: 0,
-  transportation: 0,
+  publicTransportation: 0,
+  privateTransportation: 0,
   waste: 0,
   water: 0,
 };
@@ -61,8 +63,10 @@ const reducerFn = (
       return { ...state, waste: action.value };
     case "RECYCLE":
       return { ...state, recycle: action.value };
-    case "TRANSPORTATION":
-      return { ...state, transportation: action.value };
+    case "PUBLICTRANSPORTATION":
+      return { ...state, publicTransportation: action.value };
+    case "PRIVATETRANSPORTATION":
+      return { ...state, privateTransportation: action.value };
     default:
       return state;
   }
@@ -71,7 +75,7 @@ const reducerFn = (
 export const ScoreContextProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
-  // console.log("SCORE -> ", state);
+  console.log("SCORE -> ", state);
 
   return (
     <ScoreContext.Provider value={{ score: state, dispatch }}>
@@ -80,4 +84,5 @@ export const ScoreContextProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useScoreContext = () => useContext(ScoreContext) as ScoreContextType;
+export const useScoreContext = () =>
+  useContext(ScoreContext) as ScoreContextType;
