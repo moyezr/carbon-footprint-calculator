@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { GeistSans } from "geist/font";
 import Providers from "@/components/Providers";
+import Footer from "@/components/Footer";
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className}>
       <body className="grainy">
         <Providers>{children}</Providers>
+        <Footer />
       </body>
     </html>
   );

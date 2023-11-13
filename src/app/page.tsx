@@ -1,4 +1,5 @@
 import Wrapper from "@/components/Wrapper";
+import { cn } from "@/lib/utils";
 import { Button } from "@nextui-org/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -11,9 +12,13 @@ export default function Home() {
           Calculate Your Carbon Footprint
         </h1>
         <Link href={"/calculate"}>
-          <Button className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-cyan-600 to-green-600 max-w-fit p-4 px-8 rounded-full flex items-center gap-2">
+          <button
+            className={cn(
+              "btn-grad rounded-full text-gray-200 text-3xl"
+            )}
+          >
             Calculate <ArrowRight className="w-5 h-5" />
-          </Button>
+          </button>
         </Link>
       </Wrapper>
     </div>

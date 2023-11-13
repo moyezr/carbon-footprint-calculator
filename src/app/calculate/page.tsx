@@ -29,13 +29,15 @@ const CalculatorPage = (props: Props) => {
   const [progress, setProgress] = useState<number>(0);
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.MEMBERS);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const next = () => {
     // @ts-ignore
     if (currentTab == 7) {
-      router.push("/score");
+      setIsLoading(true);
       setProgress((prev) => prev + 12.5);
+      router.push("/score");
       return;
     }
     setProgress((prev) => prev + 12.5);
@@ -48,7 +50,7 @@ const CalculatorPage = (props: Props) => {
   };
 
   return (
-    <main className="w-screen h-screen flex flex-col items-center justify-center">
+    <main className="w-screen h-[90vh] flex flex-col items-center justify-center">
       <div className="flex flex-col gap-1 text-black w-[80%] md:w-[60%] lg:w-[40%] ">
         <Progress size="md" aria-label="Loading..." value={progress} />
         {currentTab == Tabs.MEMBERS && (
@@ -78,7 +80,11 @@ const CalculatorPage = (props: Props) => {
 
         <div className="w-full flex flex-row gap-8 justify-between">
           {currentTab != Tabs.MEMBERS && <PreviousButton onClick={prev} />}
-          <NextButton isDisabled={isDisabled} onClick={next} />
+          <NextButton
+            isLoading={isLoading}
+            isDisabled={isDisabled}
+            onClick={next}
+          />
         </div>
       </div>
     </main>

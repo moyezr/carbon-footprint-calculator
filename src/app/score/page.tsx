@@ -6,12 +6,14 @@ import { cn } from "@/lib/utils";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import BarChart from "@/components/BarChart";
 import React, { useMemo } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 type Props = {};
 
 const ScorePage = (props: Props) => {
   const { score } = useScoreContext();
-  console.log("FINAL SCORE -> ", score)
+  console.log("FINAL SCORE -> ", score);
 
   const arr = Object.values(score);
   let totalScore: number = 0;
@@ -19,8 +21,7 @@ const ScorePage = (props: Props) => {
     totalScore += Number(arr[i]);
   }
 
-
-  console.log("TOTAL SCORE", totalScore)
+  console.log("TOTAL SCORE", totalScore);
 
   let gradient = "";
 
@@ -35,8 +36,15 @@ const ScorePage = (props: Props) => {
   }
 
   return (
-    <Wrapper classNames="h-screen w-screen flex items-center justify-center">
-      <main className="w-full h-[80%] flex flex-col lg:flex-row  gap-8 pt-8">
+    <Wrapper classNames="h-screen w-screen flex flex-col gap-4 items-center justify-center">
+      <Link
+        href={"/"}
+        className="text-gray-500 self-start flex items-center gap-2 hover:bg-gray-200 hover:text-gray-700 transition duration-150 p-2 rounded-lg"
+      >
+        <ArrowLeft size={20} />
+        Go Back
+      </Link>
+      <main className="w-full min-h-[80%] flex flex-col lg:flex-row  gap-8">
         <div className="flex flex-[0.75] w-full flex-col gap-4">
           <Card
             className={cn(
@@ -63,7 +71,7 @@ const ScorePage = (props: Props) => {
             </CardBody>
           </Card>
         </div>
-        <Card className="flex-1 w-full">
+        <Card className="flex-1 w-full p-0">
           <BarChart />
         </Card>
       </main>
